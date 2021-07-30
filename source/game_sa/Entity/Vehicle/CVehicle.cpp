@@ -142,7 +142,7 @@ CVehicle::CVehicle(unsigned char createdBy) : CPhysical(), m_vehicleAudio(), m_a
     for (size_t i = 0; i < m_nMaxPassengers; ++i)
         m_apPassengers[i] = nullptr;
 
-    m_nBombOnBoard = 0;
+    m_nBombOnBoard = eBombState::BOMB_NONE;
     m_nOverrideLights = eVehicleOverrideLightsState::NO_CAR_LIGHT_OVERRIDE;
     m_nWinchType = 0;
     m_nGunsCycleIndex = 0;

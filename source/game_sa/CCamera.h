@@ -352,7 +352,7 @@ public:
     float CalculateGroundHeight(eGroundHeightType type);
     void CalculateMirroredMatrix(CVector posn, float mirrorV, CMatrix *camMatrix, CMatrix *mirrorMatrix);
     void CamControl();
-    void CamShake(float arg2, float x, float y, float z);
+    void CamShake(float intensity, float whereX, float whereY, float whereZ);
     void CameraColDetAndReact(CVector *source, CVector *target);
     void CameraGenericModeSpecialCases(CPed *targetPed);
     void CameraPedAimModeSpecialCases(CPed *ped);

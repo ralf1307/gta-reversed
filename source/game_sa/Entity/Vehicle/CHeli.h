@@ -98,6 +98,7 @@ public:
 
     void BlowUpCar(CEntity* damager, unsigned char bHideExplosion) override;
     void Fix() override;
+    void ProcessControl() override;
 
     void PreRenderAlways();
     CVector FindSwatPositionRelativeToHeli(int swatNumber);
@@ -106,7 +107,7 @@ public:
     inline unsigned int GetRopeId() { return reinterpret_cast<int>(this + m_nNumSwatOccupants - 1); }
 
     static void InitHelis();
-    static void AddHeliSearchLight(CVector const& origin, CVector const& target, float targetRadius, float power, unsigned int coronaIndex, unsigned char unknownFlag, unsigned char drawShadow);
+    static void AddHeliSearchLight(CVector const& origin, CVector const& target, float targetRadius, float power, unsigned int coronaIndex, bool unknownFlag, bool drawShadow);
     static void Pre_SearchLightCone();
     static void Post_SearchLightCone();
     static void SpecialHeliPreRender(); // dummy function
@@ -120,6 +121,7 @@ public:
 private:
     void BlowUpCar_Reversed(CEntity* damager, unsigned char bHideExplosion);
     void Fix_Reversed();
+    void ProcessControl_Reversed();
 };
 
 VALIDATE_SIZE(CHeli, 0xA18);

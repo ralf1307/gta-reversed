@@ -65,7 +65,8 @@ enum eVehicleCreatedBy {
     PERMANENT_VEHICLE = 4
 };
 
-enum eBombState {
+enum eBombState : uint8_t {
+    BOMB_NONE = 0,
     BOMB_TIMED_NOT_ACTIVATED = 1,
     BOMB_IGNITION = 2,
     BOMB_STICKY = 3,
@@ -73,7 +74,7 @@ enum eBombState {
     BOMB_IGNITION_ACTIVATED = 5
 };
 
-enum eVehicleOverrideLightsState {
+enum eVehicleOverrideLightsState : uint8_t {
     NO_CAR_LIGHT_OVERRIDE = 0,
     FORCE_CAR_LIGHTS_OFF = 1,
     FORCE_CAR_LIGHTS_ON = 2
@@ -303,13 +304,8 @@ public:
     float  m_fBreakPedal;
     unsigned char  m_nCreatedBy; // see eVehicleCreatedBy
     short m_nExtendedRemovalRange; // when game wants to delete a vehicle, it gets min(m_wExtendedRemovalRange, 170.0)
-    unsigned char m_nBombOnBoard : 3; // 0 = None
-                              // 1 = Timed
-                              // 2 = On ignition
-                              // 3 = remotely set ?
-                              // 4 = Timed Bomb has been activated
-                              // 5 = On ignition has been activated
-    unsigned char m_nOverrideLights : 2; // uses enum NO_CAR_LIGHT_OVERRIDE, FORCE_CAR_LIGHTS_OFF, FORCE_CAR_LIGHTS_ON
+    eBombState m_nBombOnBoard : 3;
+    eVehicleOverrideLightsState m_nOverrideLights : 2;
     unsigned char m_nWinchType : 2; // Does this vehicle use a winch?
     unsigned char m_nGunsCycleIndex : 2; // Cycle through alternate gun hardpoints on planes/helis
     unsigned char m_nOrdnanceCycleIndex : 2; // Cycle through alternate ordnance hardpoints on planes/helis

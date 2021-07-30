@@ -166,8 +166,8 @@ void CCamera::ApplyVehicleCameraTweaks(CVehicle* vehicle) {
 }
 
 // 0x50A9F0
-void CCamera::CamShake(float arg2, float x, float y, float z) {
-    plugin::CallMethodDynGlobal<CCamera*, float, float, float, float>(0x50A9F0, this, arg2, x, y, z);
+void CCamera::CamShake(float intensity, float whereX, float whereY, float whereZ) {
+    plugin::CallMethodDynGlobal<CCamera*, float, float, float, float>(0x50A9F0, this, intensity, whereX, whereY, whereZ);
 }
 
 // 0x50AB10
